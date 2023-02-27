@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="section1">
+
+            <!-- Creating navbar -->
+
+            <div class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="urban company">
+                </div>
+                <div class="links">
+                    <div class="link link1"><a href="index.html">Home</a></div>
+                    <div class="link link2"><a href="services.html">Services</a></div>
+                    <div class="link link3"><a href="about.html">About us</a></div>
+                </div>
+            </div>
+
+            <!-- Creating slider -->
+
+            <div class="slider">
+                <div class="content">
+                    <div class="images">
+                        <img src="library.jpg" />
+                        <img src="mechanic.jpg" />
+                        <img src="masage.jpg" />
+                        <img src="cleaning.jpg" />
+                        <img src="barber.jpg" />
+                    </div>
+                    <div class="btm-slides">
+                        <span onclick="btm_slide(1)"></span>
+                        <span onclick="btm_slide(2)"></span>
+                        <span onclick="btm_slide(3)"></span>
+                        <span onclick="btm_slide(4)"></span>
+                        <span onclick="btm_slide(5)"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- details of slider -->
+
+            <div class="details">
+                <h1>Serving you <br>
+                    since 1989
+                </h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi deserunt odit asperiores dignissimos
+                    molestias doloremque et explicabo aut fugiat? Tempore fugiat officia possimus nesciunt a similique,
+                    sed nihil molestias deleniti.̉
+                </p>
+            </div>
+
+        </div>
+    </div>
+    <script>
+
+        var indexValue = 1;
+        showImg(indexValue);
+       
+        function side_slide(e) {
+            showImg((indexValue += e));
+        }
+
+        function showImg(e) {
+            var i;
+            const img = document.querySelectorAll(".section1 .slider img");
+            if (e > img.length) {
+                indexValue = 1;
+            }
+          
+            // all image opacity set to 0
+            for (i = 0; i < img.length; i++) {
+                img[i].style.opacity = 0;
+            }
+
+            
+            // required image opacity set to 1
+            img[indexValue - 1].style.opacity = 1;
+         
+        }
+
+        setInterval(() => {
+            side_slide(1)
+        }, 4000)
+    </script>
+</body>
+</html>
